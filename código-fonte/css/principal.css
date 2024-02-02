@@ -1,0 +1,72 @@
+:root {
+	--search-text: rgb(0, 0, 0, 0.8);
+	--placeholder: rgb(0, 0, 0, 0.1);
+	--placeholder-text: rgb(0, 0, 0, 0.18);
+}
+
+@font-face {
+  font-family: Gaegu;
+  font-weight: 700;
+  src: url(../fonts/Gaegu-Bold.ttf);
+}
+
+@font-face {
+  font-family: Gaegu;
+  font-weight: 400;
+  src: url(../fonts/Gaegu-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gaegu;
+  font-weight: 300;
+  src: url(../fonts/Gaegu-Light.ttf);
+}
+
+html {
+	font-size: 32px;
+	height: 100vh;
+}
+
+body {
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.pesquisa {
+		padding: 0.25rem 0.75rem;
+
+		border: none;
+		text-align: center;
+		border-bottom: 0.15rem var(--placeholder) solid;
+
+		font-size: 1rem;
+		font-weight: bold;
+		font-family: Gaegu;
+
+		min-width: 33.33%;
+		max-width: 80%;
+
+		color: var(--placeholder-text);
+		transition:
+			color 200ms ease-in-out,
+			border-color 200ms ease-in-out;
+
+		&:not(:placeholder-shown) {
+			border-color: var(--search-text);
+			color: var(--search-text);
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&::placeholder {
+			font-size: 1.5rem;
+			font-weight: bold;
+			font-family: Gaegu;
+			color: var(--placeholder-text);
+		}
+	}
+}
