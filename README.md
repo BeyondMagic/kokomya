@@ -4,7 +4,11 @@ ___
 
 Rascunhos de designs inicias:
 
-![Primeiro rascunho.](/.github/1o_rascunho.png)
+Página:
+![Primeiro rascunho da página.](/.github/1o_rascunho.png)
+
+Logo:
+![Primeiro rascunho da logo.](/.github/1o_rascunho_logo.png)
 
 ___
 
