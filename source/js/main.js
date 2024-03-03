@@ -74,6 +74,10 @@ class Search extends HTMLInputElement {
 		this.after(this.suggestions)
 	}
 
+	disconnectedCallback() {
+		this.suggestions.remove()
+	}
+
 	/**
 	* Searches current value through API.
 	* @param {string} query
