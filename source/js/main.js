@@ -67,24 +67,26 @@ class Search extends HTMLInputElement {
 	connectedCallback() {
 		this.suggestions = document.createElement('list-suggestions')
 
-		this.search(this.value)
+		this.search()
 
-		this.onkeyup = debounce(() => this.search(this.value), 250)
+		this.onkeyup = debounce(this.search, 250)
 
 		this.after(this.suggestions)
 	}
 
 	/**
+	* Searches current value through API.
 	* @param {string} query
+	* @returns {void}
 	*/
-	async search (query) {
+	async search () {
 
-		if (!this.suggestions || !query.length)
+		if (!this.suggestions || !this.value.length)
 			return
 
-		this.suggestions.query = query
+		this.suggestions.query = this.value
 
-		const response = await fetch(`https://araa.extravi.dev/suggestions?q=${query}`)
+		const response = await fetch(`https://araa.extravi.dev/suggestions?q=${this.value}`)
 		/**
 		 * @type {[ string, Array<string> ]}
 		 */
