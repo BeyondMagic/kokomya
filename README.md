@@ -2,6 +2,20 @@ Uma página inicial para o navegador, ao abrir uma taba, uma nova janela, ou ape
 
 ___
 
+- [ ] Add quotes reading support by randomness.
+- [ ] Add interval for a new quote.
+- [ ] Add a way to chose a specific quote by name.
+- [ ] Add notifications.
+- [ ] Background accent colour automatic (configuration).
+- [ ] Links from localStorage and being able to save to a .json file.
+- [ ] When adding new quote, option to be new default (move up) or just be added to storage (move down).
+- [ ] History for wallpapers.
+- [ ] Add fade-in options for clock when hover it.
+- [ ] Add limit in warning for maximum size of quotes/background history.
+- [ ] Add search history by actionable menu.
+
+___
+
 Rascunhos de designs inicias:
 
 Página:

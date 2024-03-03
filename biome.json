@@ -1,0 +1,15 @@
+{
+	"$schema": "/home/dream/.config/bun/install/cache/@biomejs/biome/1.4.1/configuration_schema.json",
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"complexity": {
+				"noUselessConstructor": "off"
+			},
+			"suspicious": {
+			},
+			"style": {
+			}
+		}
+	}
+}

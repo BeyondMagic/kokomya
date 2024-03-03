@@ -1,0 +1,38 @@
+@font-face {
+  font-family: Comic Neue;
+  font-weight: 700;
+  src: url(../assets/fonts/Comic_Neue/ComicNeue-Bold.ttf);
+}
+
+@font-face {
+  font-family: Comic Neue;
+  font-weight: 700;
+  font-style: italic;
+  src: url(../assets/fonts/Comic_Neue/ComicNeue-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: Comic Neue;
+  font-weight: 400;
+  src: url(../assets/fonts/Comic_Neue/ComicNeue-Regular.ttf);
+}
+
+@font-face {
+  font-family: Comic Neue;
+  font-weight: 400;
+  font-style: italic;
+  src: url(../assets/fonts/Comic_Neue/ComicNeue-Italic.ttf);
+}
+
+@font-face {
+  font-family: Comic Neue;
+  font-weight: 300;
+  src: url(../assets/fonts/Comic_Neue/ComicNeue-Light.ttf);
+}
+
+@font-face {
+  font-family: Comic Neue;
+  font-weight: 300;
+  font-style: italic;
+  src: url(../assets/fonts/Comic_Neue/ComicNeue-Light.ttf);
+}
