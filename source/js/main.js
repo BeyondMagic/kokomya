@@ -2,7 +2,7 @@
  * Return callback with debouncer.
  * @param {Function} fun
  * @param {number} ms
- * @returns {Function}
+ * @returns {(...args : Array<any>) => any}
  */
 function debounce(fun, ms) {
 	let timer = 0
@@ -35,7 +35,6 @@ class Suggestions extends HTMLElement {
 
 	/**
 	* Add list of queries and highlight them.
-	* @param {string} query
 	* @param {Array<string>} list
 	*/
 	set items (list) {
@@ -73,8 +72,14 @@ class Search extends HTMLInputElement {
 	connectedCallback() {
 		/**
 		 * The element must be rendered before this one.
+		 * @type {Suggestions | null}
 		 */
-		this.suggestions = document.querySelector(`list-suggestions[for="${this.name}"]`)
+		const suggestions = document.querySelector(`list-suggestions[for="${this.name}"]`)
+
+		if (!suggestions)
+			throw Error("Not found list-suggestions.")
+
+		this.suggestions = suggestions
 
 		this.search()
 
@@ -87,8 +92,7 @@ class Search extends HTMLInputElement {
 
 	/**
 	* Searches current value through API.
-	* @param {string} query
-	* @returns {void}
+	* @returns {Promise<void>}
 	*/
 	async search () {
 
