@@ -99,6 +99,7 @@ class Search extends HTMLInputElement {
 
 		const response = await fetch(`https://araa.extravi.dev/suggestions?q=${this.value}`)
 		/**
+		 * First item is the query itself, the last is an array of suggestions.
 		 * @type {[ string, Array<string> ]}
 		 */
 		const data = await response.json()
