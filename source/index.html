@@ -25,21 +25,13 @@
 	<!-- A classe do corpo define o tema. -->
 	<body class="light">
 		
-		<section class="search">
-			<input id="search" is="input-search" autocomplete="off" type="text" placeholder="O que você procura?">
-		</section>
-
-		<!--
-		<section class="citacao">
-			<section class="palavras">
-				A gente não pode ter tudo, qual seria a graça do mundo se fosse assim?
-			</section>
-			<div class="separador"></div>
-			<section class="creditos">
-				Ana Viela, Trem-Bala
+		<section class="search-container">
+			<list-suggestions for="search"></list-suggestions>
+			<section class="input-container">
+				<input name="search" is="input-search" autocomplete="off" type="text" placeholder="O que você procura?">
+				<span class="kind">G</span>
 			</section>
 		</section>
-		-->
 
 	</body>
 

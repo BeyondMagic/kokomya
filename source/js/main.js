@@ -56,22 +56,29 @@ class Search extends HTMLInputElement {
 
 	/**
 	* Which string to match in highlighting.
-	* @type { string }
+	* @type {string}
 	*/
-	query = ''
+	query
+
+	/**
+	 * The list of suggestions to ad from each search.
+	 * @type {Suggestions}
+	 */
+	suggestions
 
 	constructor () {
 		super()
 	}
 
 	connectedCallback() {
-		this.suggestions = document.createElement('list-suggestions')
+		/**
+		 * The element must be rendered before this one.
+		 */
+		this.suggestions = document.querySelector(`list-suggestions[for="${this.name}"]`)
 
 		this.search()
 
 		this.onkeyup = debounce(this.search, 250)
-
-		this.after(this.suggestions)
 	}
 
 	disconnectedCallback() {

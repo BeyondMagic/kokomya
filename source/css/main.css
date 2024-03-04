@@ -28,22 +28,34 @@ body {
 	align-items: center;
 
 	/* Search widget. */
-	> .search {
+	> .search-container {
 		box-shadow: 0 0 1rem var(--search-shadow);
 
 		display: flex;
-		flex-direction: column;
+		flex-direction: column-reverse;
 
-		> #search {
-			width: 100%;
-			border: none;
+		> .input-container {
+			display: flex;
+			flex-direction: row;
 
-			&:focus {
-				outline: none;
+			> .kind {
+				text-align: center;
+				aspect-ratio: 1;
+
+				cursor: pointer;
+			}
+
+			> input {
+				width: 100%;
+				border: none;
+
+				&:focus {
+					outline: none;
+				}
 			}
 		}
 
-		> #search,
+		> .input-container > input,
 		> list-suggestions > .item {
 			padding: 0.25rem 0.8rem;
 			font-size: 1rem;
@@ -52,7 +64,6 @@ body {
 
 		> list-suggestions {
 			> .item {
-
 				cursor: pointer;
 
 				> .match {
