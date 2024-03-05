@@ -62,7 +62,7 @@ export class Search extends HTMLInputElement {
 	*/
 	async search () {
 
-		if (!this.suggestions || !this.value.length)
+		if (!this.value.length)
 			return
 
 		this.suggestions.query = this.value
