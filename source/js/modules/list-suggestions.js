@@ -1,10 +1,13 @@
+/**
+ * List of suggestions.
+ */
 export class Suggestions extends HTMLElement {
 
 	/**
 	* Which string to match in highlighting.
 	* @type { string }
 	*/
-	query = ''
+	match
 
 	constructor () {
 		super()
@@ -15,7 +18,7 @@ export class Suggestions extends HTMLElement {
 	* @param {string} suggestion
 	*/
 	_highlight (suggestion) {
-		return suggestion.replace(this.query, `<span class="match">${this.query}</span>`)
+		return suggestion.replace(this.match, `<span class="match">${this.match}</span>`)
 	}
 
 	/**
@@ -33,3 +36,5 @@ export class Suggestions extends HTMLElement {
 		this.replaceChildren(...children)
 	}
 }
+
+customElements.define('list-suggestions', Suggestions, { extends: 'section' })

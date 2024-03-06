@@ -1,5 +1,3 @@
-import { Suggestions } from "./modules/list-suggestions.js"
-import { Search } from "./modules/input-search.js"
+import { Search } from "./modules/search-engine.js"
 
-customElements.define('input-search', Search, { extends: 'input' })
-customElements.define('list-suggestions', Suggestions)
+customElements.define('search-engine', Search, { extends: 'section' })
