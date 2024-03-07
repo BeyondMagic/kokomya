@@ -85,11 +85,30 @@ export class Search extends HTMLElement {
 		this.input.onkeyup = debounce(async () => {
 			this.suggestions.match = this.input.value
 			this.suggestions.items = await this.input.search()
+
+			for (const suggestion of this.suggestions.children)
+				this.link(suggestion, suggestion.textContent)
 		}, 250)
 	}
 
 	disconnectedCallback() {
 		this.suggestions.remove()
 		this.input.remove()
+	}
+
+	/**
+	 * Add hyprlink of search engine to an element.
+	 * @param {Element} element
+	 * @param {string | null} query
+	 * @returns {void}
+	 */
+	link (element, query) {
+		const hyperlink = document.createElement('a')
+
+		hyperlink.href = this.searches[this.chosen].url + query
+
+		element.parentNode?.insertBefore(hyperlink, element)
+
+		hyperlink.appendChild(element)
 	}
 }
