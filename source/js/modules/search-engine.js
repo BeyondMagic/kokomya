@@ -82,11 +82,13 @@ export class Search extends HTMLElement {
 
 		this.append(input_container, this.suggestions)
 
-		this.input.onkeyup = debounce(async () => {
-			this.suggestions.hyperlink = this.searches[this.chosen].url
-			this.suggestions.match = this.input.value
-			this.suggestions.items = await this.input.search()
-		}, 250)
+		this.input.onkeyup = debounce(async () =>
+			this.suggestions.set_items({
+				list: await this.input.search(),
+				match: this.input.value,
+				hyperlink: this.searches[this.chosen].url
+			})
+		, 250)
 	}
 
 	disconnectedCallback() {

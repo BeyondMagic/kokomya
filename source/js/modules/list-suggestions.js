@@ -5,18 +5,6 @@ export class Suggestions extends HTMLElement {
 
 	constructor () {
 		super()
-
-		/**
-		* Which string to match in highlighting.
-		* @type {string}
-		*/
-		this.match = ''
-
-		/**
-		 * The hyperlink of the search engine.
-		 * @type {string}
-		 */
-		this.hyperlink = ''
 	}
 
 	connectedCallback() {
@@ -26,21 +14,24 @@ export class Suggestions extends HTMLElement {
 	/**
 	* Highlight the matched query in the items of the list.
 	* @param {string} suggestion
+	* @param {string} match
 	*/
-	_highlight (suggestion) {
-		return suggestion.replace(this.match, `<span class="match">${this.match}</span>`)
+	_highlight (suggestion, match) {
+		return suggestion.replace(match, `<span class="match">${match}</span>`)
 	}
 
 	/**
-	* Add list of queries and highlight them.
-	* @param {Array<string>} list
+	* @param {Object} items The list data and its metadata.
+	* @param {Array<string>} items.list The list of suggestions itself..
+	* @param {string} items.match The email of the user.
+	* @param {string} items.hyperlink The email of the user.
 	*/
-	set items (list) {
+	set_items ({ list, match, hyperlink }) {
 		const children = list.map(suggestion => {
 			const item = document.createElement('a')
-			item.href = this.hyperlink + suggestion
+			item.href = hyperlink + suggestion
 			item.className = 'item'
-			item.innerHTML = this._highlight(suggestion)
+			item.innerHTML = this._highlight(suggestion, match)
 			return item
 		})
 
