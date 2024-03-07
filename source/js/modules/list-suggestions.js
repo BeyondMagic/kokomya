@@ -13,10 +13,11 @@ export class Suggestions extends HTMLElement {
 
 	/**
 	* Highlight the matched query in the items of the list.
-	* @param {string} suggestion
-	* @param {string} match
+	* @param {Object} item The item to make appropriate replacements
+	* @param {string} item.suggestion 
+	* @param {string} item.match
 	*/
-	_highlight (suggestion, match) {
+	highlight ({ suggestion, match}) {
 		return suggestion.replace(match, `<span class="match">${match}</span>`)
 	}
 
@@ -31,7 +32,7 @@ export class Suggestions extends HTMLElement {
 			const item = document.createElement('a')
 			item.href = hyperlink + suggestion
 			item.className = 'item'
-			item.innerHTML = this._highlight(suggestion, match)
+			item.innerHTML = this.highlight({ suggestion, match })
 			return item
 		})
 

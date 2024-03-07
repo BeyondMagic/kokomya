@@ -82,13 +82,25 @@ export class Search extends HTMLElement {
 
 		this.append(input_container, this.suggestions)
 
-		this.input.onkeyup = debounce(async () =>
-			this.suggestions.set_items({
-				list: await this.input.search(),
-				match: this.input.value,
-				hyperlink: this.searches[this.chosen].url
-			})
-		, 250)
+		// Get suggestions with a debouncer.
+		this.input.addEventListener('keyup',
+			debounce(async () =>
+				this.suggestions.set_items({
+					list: await this.input.search(),
+					match: this.input.value,
+					hyperlink: this.searches[this.chosen].url
+				})
+			, 250)
+		)
+
+		// Highlight as the user types.
+		this.input.addEventListener('keyup', () => {
+			for (const suggestion of this.suggestions.children)
+				suggestion.innerHTML = this.suggestions.highlight({
+					suggestion: suggestion.textContent ?? '',
+					match: this.input.value
+				})
+		})
 	}
 
 	disconnectedCallback() {
