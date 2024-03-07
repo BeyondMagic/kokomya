@@ -28,11 +28,11 @@ body {
 	align-items: center;
 
 	/* Search widget. */
-	> .search-container {
+	> .search-engine {
 		box-shadow: 0 0 1rem var(--search-shadow);
 
 		display: flex;
-		flex-direction: column-reverse;
+		flex-direction: column;
 
 		> .input-container {
 			display: flex;
@@ -56,13 +56,13 @@ body {
 		}
 
 		> .input-container > input,
-		> list-suggestions > .item {
+		> .suggestions > .item {
 			padding: 0.25rem 0.8rem;
 			font-size: 1rem;
 			font-family: Comic Neue;
 		}
 
-		> list-suggestions {
+		> .suggestions {
 			> .item {
 				cursor: pointer;
 

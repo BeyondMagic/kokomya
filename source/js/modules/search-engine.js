@@ -31,17 +31,30 @@ export class Search extends HTMLElement {
 	*/
 	input
 
+	/**
+	* Suggestions list for the search.
+	* @type {Suggestions}
+	*/
+	suggestions
+
 	constructor () {
 		super()
 	}
 
 	connectedCallback() {
+		this.className = 'search-engine'
+
 		this.suggestions = new Suggestions()
 		this.input = new Input()
 
-		this.append(this.input, this.suggestions)
+		const input_container = document.createElement('section')
+		input_container.className = 'input-container'
+		input_container.append(this.input)
+
+		this.append(input_container, this.suggestions)
 
 		this.input.onkeyup = debounce(async () => {
+			this.suggestions.match = this.input.value
 			this.suggestions.items = await this.input.search()
 		}, 250)
 	}

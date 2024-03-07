@@ -13,6 +13,10 @@ export class Suggestions extends HTMLElement {
 		super()
 	}
 
+	connectedCallback() {
+		this.className = 'suggestions'
+	}
+
 	/**
 	* Highlight the matched query in the items of the list.
 	* @param {string} suggestion
