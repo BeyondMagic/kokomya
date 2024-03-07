@@ -8,9 +8,15 @@ export class Suggestions extends HTMLElement {
 
 		/**
 		* Which string to match in highlighting.
-		* @type { string }
+		* @type {string}
 		*/
 		this.match = ''
+
+		/**
+		 * The hyperlink of the search engine.
+		 * @type {string}
+		 */
+		this.hyperlink = ''
 	}
 
 	connectedCallback() {
@@ -31,7 +37,8 @@ export class Suggestions extends HTMLElement {
 	*/
 	set items (list) {
 		const children = list.map(suggestion => {
-			const item = document.createElement('div')
+			const item = document.createElement('a')
+			item.href = this.hyperlink + suggestion
 			item.className = 'item'
 			item.innerHTML = this._highlight(suggestion)
 			return item

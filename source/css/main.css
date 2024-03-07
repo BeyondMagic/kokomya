@@ -63,8 +63,13 @@ body {
 		}
 
 		> .suggestions {
+			display: flex;
+			flex-direction: column;
+
 			> .item {
+				color: black;
 				cursor: pointer;
+				text-decoration: none;
 
 				> .match {
 					text-decoration: underline;
