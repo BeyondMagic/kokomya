@@ -16,37 +16,66 @@ function debounce(fun, ms) {
 	}
 }
 
-
 export class Search extends HTMLElement {
-
-	/**
-	* Suggestions list for the search.
-	* @type {Suggestions}
-	*/
-	suggestions
-
-	/**
-	* Input search itself.
-	* @type {Input}
-	*/
-	input
-
-	/**
-	* Suggestions list for the search.
-	* @type {Suggestions}
-	*/
-	suggestions
 
 	constructor () {
 		super()
+
+
+		/**
+		 * Search engines that will be used for the search.
+		 * The query will be appended to the url.
+		 * @type {Array<{icon: string, url: string}>}
+		 */
+		this.searches = [
+			{
+				icon: 'Araa',
+				url: 'https://araa.extravi.dev/search?t=text&q='
+			},
+			{
+				icon: 'Google',
+				url: 'https://www.google.com/search?q='
+			},
+			{
+				icon: 'YouTube',
+				url: 'https://www.youtube.com/results?search_query='
+			},
+			{
+				icon: 'GitHub',
+				url: 'https://github.com/search?type=repositories&q='
+			},
+			{
+				icon: 'LibGen',
+				url: 'https://www.libgen.is/search.php?lg_topic=libgen&open=0&view=simple&res=25&phrase=1&column=def&req='
+			},
+			{
+				icon: 'Jisho',
+				url: 'https://jisho.org/search/'
+			}
+		]
+
+		/**
+		 * Chosen search.
+		 * @type {number}
+		 */
+		this.chosen = 0
+
+		this.className = 'search-engine'
+
+		/**
+		* Suggestions list for the search.
+		* @type {Suggestions}
+		*/
+		this.suggestions = new Suggestions()
+
+		/**
+		* Input search itself.
+		* @type {Input}
+		*/
+		this.input = new Input()
 	}
 
 	connectedCallback() {
-		this.className = 'search-engine'
-
-		this.suggestions = new Suggestions()
-		this.input = new Input()
-
 		const input_container = document.createElement('section')
 		input_container.className = 'input-container'
 		input_container.append(this.input)

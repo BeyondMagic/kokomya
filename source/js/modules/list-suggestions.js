@@ -3,14 +3,14 @@
  */
 export class Suggestions extends HTMLElement {
 
-	/**
-	* Which string to match in highlighting.
-	* @type { string }
-	*/
-	match
-
 	constructor () {
 		super()
+
+		/**
+		* Which string to match in highlighting.
+		* @type { string }
+		*/
+		this.match = ''
 	}
 
 	connectedCallback() {
